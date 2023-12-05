@@ -1,0 +1,16 @@
+.category_bg {
+    border-radius: 0.3rem;
+    transition: all 0.3s;
+}
+
+.category_bg:hover {
+    background-color: #ccc;
+}
+
+.category_text_hover {
+    transition: all 0.2s;
+}
+
+.category_text_hover:hover {
+    color: black !important;
+}
