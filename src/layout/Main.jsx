@@ -4,11 +4,13 @@ import Header from "../pages/shared/Header/Header";
 import LeftSideNav from "../pages/shared/LeftSideNav/LeftSideNav";
 import RightSideNav from "../pages/shared/RightSideNav/RightSideNav";
 import '../layout/Main.css';
+import NavigationBar from "../pages/shared/Footer/components/NavigationBar/NavigationBar";
 
 const Main = () => {
   return (
     <div>
       <Header></Header>
+      <NavigationBar></NavigationBar>
       <Container>
         <Row>
           <Col lg={3}>

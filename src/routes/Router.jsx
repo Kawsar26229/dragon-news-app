@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import LoginLayout from "../layout/LoginLayout";
 import Login from "../pages/shared/Login/Login/Login";
@@ -9,6 +9,10 @@ export const router = createBrowserRouter([
         path: '/',
         element: <LoginLayout></LoginLayout>,
         children: [
+            {
+                path: '/',
+                element: <Navigate to='/category'> </Navigate>
+            },
             {
                 path: '/login',
                 element: <Login></Login>

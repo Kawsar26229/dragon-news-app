@@ -2,7 +2,6 @@ import moment from "moment/moment";
 import logo from "../../../assets/logo.png";
 import { Container } from "react-bootstrap";
 import Marquee from "react-fast-marquee";
-import NavigationBar from "../Footer/components/NavigationBar/NavigationBar";
 
 const Header = () => {
   return (
@@ -21,7 +20,6 @@ const Header = () => {
           Highlights: Germany vs Spain as...
         </Marquee>
       </div>
-      <NavigationBar></NavigationBar>
     </Container>
   );
 };

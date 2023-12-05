@@ -1,8 +1,20 @@
-import { Container, Image, Nav, Navbar } from "react-bootstrap";
-import user from "../../../../../assets/user.png";
+import { Button, Container, Image, Nav, Navbar } from "react-bootstrap";
+import userImg from "../../../../../assets/user.png";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../../../../provider/AuthProvider";
 
 const NavigationBar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handleLoggedOut = () => {
+    logOut()
+      .then((result) => {
+        console.log("Logout successful", result);
+      })
+      .catch((error) => {
+        console.log("Logout Not Success", error);
+      });
+  };
   return (
     <Container>
       <Navbar expand="lg" className="mt-4">
@@ -18,12 +30,26 @@ const NavigationBar = () => {
               <Nav.Link>About</Nav.Link>
               <Nav.Link>Career</Nav.Link>
             </Nav>
-            <Image
-              src={user}
-              roundedCircle
-              style={{ height: "35px", marginRight: "0.5rem" }}
-            />
-            <Link to='/login' className="btn btn-dark">Login</Link>
+            {user ? (
+              <span className="me-2 fw-semibold">{user.displayName}</span>
+            ) : (
+              <Image
+                src={userImg}
+                roundedCircle
+                style={{ height: "35px", marginRight: "0.5rem" }}
+              />
+            )}
+            {user ? (
+              <Button className="btn btn-dark" onClick={handleLoggedOut}>
+                <Link to="/login" className="text-white text-decoration-none">
+                  Logout
+                </Link>
+              </Button>
+            ) : (
+              <Link to="/login" className="btn btn-dark">
+                Login
+              </Link>
+            )}
           </Navbar.Collapse>
         </Container>
       </Navbar>
