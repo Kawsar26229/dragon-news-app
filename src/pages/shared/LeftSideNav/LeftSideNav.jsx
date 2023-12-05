@@ -22,9 +22,9 @@ const LeftSideNav = () => {
             <h4 className="fw-semibold">All Category</h4>
             <div>
                 {
-                    categories.map(category => <p key={category.id} className="m-0 py-3 ps-5 category_bg">
-                        <Link className="text-decoration-none fs-5 text-secondary category_text_hover">{category.name}</Link>
-                    </p>)
+                    categories.map(category => <div key={category.id} className="m-0 py-3 ps-5 category_bg">
+                        <Link to={`/category/${category.id}`} className="text-decoration-none fs-5 text-secondary category_text_hover">{category.name}</Link>
+                    </div>)
                 }
             </div>
             <NewsCard></NewsCard>

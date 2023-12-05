@@ -16,10 +16,10 @@ const NewsCard = () => {
           </Card.Title>
           <Card.Text>
             <div className="d-flex justify-content-between">
-              <p>Sports</p>
+              <div>Sports</div>
               <div className="d-flex">
                 <FaBox />
-                <p className="ms-2">{moment().format('ll')}</p>
+                <div className="ms-2">{moment().format('ll')}</div>
               </div>
             </div>
           </Card.Text>
@@ -33,10 +33,10 @@ const NewsCard = () => {
           </Card.Title>
           <Card.Text>
             <div className="d-flex justify-content-between">
-              <p>Sports</p>
+              <div>Sports</div>
               <div className="d-flex">
                 <FaBox />
-                <p className="ms-2">{moment().format('ll')}</p>
+                <div className="ms-2">{moment().format('ll')}</div>
               </div>
             </div>
           </Card.Text>
@@ -50,10 +50,10 @@ const NewsCard = () => {
           </Card.Title>
           <Card.Text>
             <div className="d-flex justify-content-between">
-              <p>Sports</p>
+              <div>Sports</div>
               <div className="d-flex">
                 <FaBox />
-                <p className="ms-2">{moment().format('ll')}</p>
+                <div className="ms-2">{moment().format('ll')}</div>
               </div>
             </div>
           </Card.Text>

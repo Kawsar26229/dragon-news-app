@@ -3,6 +3,7 @@ import userImg from "../../../../../assets/user.png";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../../../../provider/AuthProvider";
+import Marquee from "react-fast-marquee";
 
 const NavigationBar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -16,7 +17,14 @@ const NavigationBar = () => {
       });
   };
   return (
-    <Container>
+    <Container className="mb-4">
+      <div className="d-flex bg-light py-1 px-2 rounded">
+        <button className="btn btn-danger">Latest</button>
+        <Marquee>
+          Match Highlights: Germany vs Spain — as it happened ! Match
+          Highlights: Germany vs Spain as...
+        </Marquee>
+      </div>
       <Navbar expand="lg" className="mt-4">
         <Container fluid>
           <Navbar.Toggle aria-controls="navbarScroll" />

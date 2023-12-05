@@ -5,6 +5,7 @@ import LeftSideNav from "../pages/shared/LeftSideNav/LeftSideNav";
 import RightSideNav from "../pages/shared/RightSideNav/RightSideNav";
 import '../layout/Main.css';
 import NavigationBar from "../pages/shared/Footer/components/NavigationBar/NavigationBar";
+import { Outlet } from "react-router-dom";
 
 const Main = () => {
   return (
@@ -17,7 +18,7 @@ const Main = () => {
             <LeftSideNav></LeftSideNav>
           </Col>
           <Col lg={6}>
-            <h2>Main content is coming</h2>
+            <Outlet></Outlet>
           </Col>
           <Col lg={3}>
             <RightSideNav></RightSideNav>
