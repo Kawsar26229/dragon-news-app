@@ -1,9 +1,11 @@
 import { createContext, useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from "../firebase/firebase.config";
 
 export const AuthContext = createContext(null)
-const auth = getAuth(app);
+const auth = getAuth(app)
+const googleProvider = new GoogleAuthProvider()
+const githubProvider = new GithubAuthProvider()
 
 // eslint-disable-next-line react/prop-types
 const AuthProvider = ({children}) => {
@@ -26,6 +28,18 @@ const AuthProvider = ({children}) => {
             photoURL: photoURL
         })
     }
+    const signInWithGoogle = () => {
+        setLoading(true)
+        return signInWithPopup(auth, googleProvider)
+    }
+    const signInWithGithub = () => {
+        setLoading(true)
+        return signInWithPopup(auth, githubProvider)
+    }
+    const sendVerification = () => {
+        setLoading(true)
+        return sendEmailVerification(auth.currentUser)
+    }
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -41,7 +55,10 @@ const AuthProvider = ({children}) => {
         user,
         logOut,
         updateUser,
-        loading
+        loading,
+        signInWithGoogle,
+        signInWithGithub,
+        sendVerification
     }
     return (
         <AuthContext.Provider value={authInfo}>

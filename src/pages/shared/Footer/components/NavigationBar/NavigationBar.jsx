@@ -34,9 +34,9 @@ const NavigationBar = () => {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link>Home</Nav.Link>
-              <Nav.Link>About</Nav.Link>
-              <Nav.Link>Career</Nav.Link>
+              <Link className="text-decoration-none text-dark me-2" to='/'>Home</Link>
+              <Link className="text-decoration-none text-dark me-2" to='/about'>About</Link>
+              <Link className="text-decoration-none text-dark me-2" to='/career'>Career</Link>
             </Nav>
             {user ? (
               <span className="me-2 fw-semibold">{user.displayName}</span>

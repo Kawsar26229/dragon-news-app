@@ -1,11 +1,12 @@
 import { useContext, useState } from "react";
 import { Container, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../../provider/AuthProvider";
 
 const Register = () => {
-  const { createUser, updateUser } = useContext(AuthContext);
+  const { createUser, updateUser,sendVerification } = useContext(AuthContext)
   const [acc, setAcc] = useState(false)
+  const navigate = useNavigate()
   const handleRegister = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -15,7 +16,12 @@ const Register = () => {
     const password = form.password.value;
     createUser(email, password)
       .then((userCredential) => {
+        sendVerification(() => {
+          console.log('Please Verify Your Email');
+        })
         updateUser(name, photoURL)
+        form.reset()
+        navigate('/login')
         .then(() => {
             console.log('Profile Updated');
         })
@@ -25,9 +31,6 @@ const Register = () => {
         const user = userCredential.user;
         console.log(user);
       })
-      .catch((error) => {
-        console.log("User Created Unsuccessful", error);
-      });
   };
 
   const handleAccepted = (event) => {
